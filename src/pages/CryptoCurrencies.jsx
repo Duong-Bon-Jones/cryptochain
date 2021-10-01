@@ -1,6 +1,6 @@
 import { Card, Col, Input, Row } from "antd";
 import millify from "millify";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useGetCryptosQuery } from "../services/cryptoApi";

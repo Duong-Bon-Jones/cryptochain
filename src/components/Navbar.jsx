@@ -14,25 +14,27 @@ import { useLocation } from "react-router";
 const Navbar = () => {
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(null);
+    const [keyNav, setKeyNav] = useState("1");
 
-    const location = useLocation();
-    let key;
+    const { pathname } = useLocation();
 
-    if (location.pathname.includes("/crypto")) {
-        key = "2";
-    } else {
-        switch (location.pathname) {
-            case "/exchanges":
-                key = "3";
-                break;
-            case "/news":
-                key = "4";
-                break;
-            default:
-                key = "1";
-                break;
+    useEffect(() => {
+        if (pathname.includes("/crypto")) {
+            setKeyNav("2");
+        } else {
+            switch (pathname) {
+                case "/exchanges":
+                    setKeyNav("3");
+                    break;
+                case "/news":
+                    setKeyNav("4");
+                    break;
+                default:
+                    setKeyNav("1");
+                    break;
+            }
         }
-    }
+    }, [pathname]);
 
     useEffect(() => {
         const resizeHandler = () => {
@@ -70,7 +72,7 @@ const Navbar = () => {
                 </Button>
             </div>
             {activeMenu && (
-                <Menu selectedKeys={[key]} theme="dark">
+                <Menu selectedKeys={[keyNav]} theme="dark">
                     <Menu.Item key={1} icon={<HomeOutlined />}>
                         <Link to="/">Home</Link>
                     </Menu.Item>

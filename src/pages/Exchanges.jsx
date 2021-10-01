@@ -1,4 +1,4 @@
-import { Avatar, Table } from "antd";
+import { Table } from "antd";
 import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 import Loader from "../components/Loader";
