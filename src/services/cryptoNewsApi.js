@@ -24,6 +24,7 @@ export const cryptoNewsApi = createApi({
                 ),
         }),
     }),
+    refetchOnReconnect: true,
 });
 
 export const { useGetCryptoNewsQuery } = cryptoNewsApi;

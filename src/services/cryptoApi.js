@@ -32,6 +32,7 @@ export const cryptoApi = createApi({
             query: () => createRequest(`/exchanges`),
         }),
     }),
+    refetchOnReconnect: true,
 });
 
 export const {
